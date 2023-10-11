@@ -9,7 +9,7 @@ export default class extends BaseSchema {
       table.string('title', 255).notNullable()
       table.string('short_des', 255)
       table.string('full_des', 255)
-      table.integer('user_id')
+      table.integer('auth_id')
     })
   }
 

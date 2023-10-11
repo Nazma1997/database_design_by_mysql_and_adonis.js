@@ -13,8 +13,13 @@ export default class Comment extends BaseModel {
   public post_id: number
 
   @column()
-  public user_id: number
+  public auth_id: number
 
+  // @column()
+  // public authId: number;
+
+  // @column()
+  // public postId: number;
 
   @belongsTo(() => Post)
   public post: BelongsTo<typeof Post>;

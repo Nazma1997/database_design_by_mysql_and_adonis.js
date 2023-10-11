@@ -16,7 +16,11 @@ export default class Post extends BaseModel {
   public full_des: string
 
   @column()
-  public user_id: number
+  public auth_id: number
+
+  
+  // @column()
+  // public authId: number;
 
   @belongsTo(() => Auth)
   public user: BelongsTo<typeof Auth>;

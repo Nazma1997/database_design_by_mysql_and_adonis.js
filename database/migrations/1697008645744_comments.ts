@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('des')
       table.integer('post_id')
-      table.integer("user_id")
+      table.integer("auth_id")
     })
   }
 
