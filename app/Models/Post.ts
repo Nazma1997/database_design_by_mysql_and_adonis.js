@@ -19,8 +19,8 @@ export default class Post extends BaseModel {
   public auth_id: number
 
   
-  // @column()
-  // public authId: number;
+  @column()
+  public authId: number;
 
   @belongsTo(() => Auth)
   public user: BelongsTo<typeof Auth>;

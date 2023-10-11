@@ -27,15 +27,22 @@ Route.get('/', async () => {
 // user end point
 Route.post('/users', 'AuthController.createUser')
 Route.get('/users', 'AuthController.allUser')
+Route.patch('/users/:id/edit', 'AuthController.updateUser')
+Route.delete('/users/:id/delete', 'AuthController.deleteUser')
+Route.get('/users/:id', 'AuthController.singleUserByParams')
 
 
 // post end point
 
 Route.post('/posts', 'PostsController.createPost')
 Route.get('/posts', 'PostsController.allPosts')
-
+Route.patch('/posts/:id/edit', 'PostsController.updatePost')
+Route.delete('/posts/:id/delete', 'PostsController.deletePost')
 
 
 // comment end point 
 
 Route.post('/comments', 'CommentsController.createComment')
+Route.get('/comments', 'CommentsController.allComments')
+Route.patch('/comments/:id/edit', 'CommentsController.updateComment')
+Route.delete('/comments/:id/delete', 'CommentsController.deleteComment')

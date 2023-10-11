@@ -24,4 +24,36 @@ export default class CommentsController {
              console.log(error)
         }
     }
+
+
+    
+    public async updateComment({ params, request, response }: HttpContextContract) {
+        try {
+            const updateData = await Comment.findOrFail(params.id)
+            if (!updateData) {
+                return response.status(400).json({ message: 'data can not found' })
+            }
+            const data = request.only(['des', 'post_id','auth_id'])
+            updateData.merge(data)
+            await updateData.save()
+            return response.status(200).json(updateData)
+        } catch (error) {
+            return response.status(500).json({ message: 'Internal Server Error' })
+
+        }
+    }
+
+    public async deleteComment({ params, response }) {
+        try {
+            const data = await Comment.findOrFail(params.id)
+
+            if (!data) {
+                return response.status(400).json({ message: 'data can not found' })
+            }
+            await data.delete()
+            return response.status(204).json({ message: 'data deleted successfully', data })
+        } catch (error) {
+            return response.status(500).json({ message: 'Internal server error' })
+        }
+    }
 }
