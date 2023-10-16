@@ -1,6 +1,8 @@
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, HasMany, belongsTo, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Post from './Post';
 import Auth from './Auth';
+import Repl from '@ioc:Adonis/Addons/Repl';
+import Reply from './Reply';
 
 export default class Comment extends BaseModel {
   @column({ isPrimary: true })
@@ -26,4 +28,10 @@ export default class Comment extends BaseModel {
 
   @belongsTo(() => Auth)
   public user: BelongsTo<typeof Auth>;
+
+  // @hasMany(() => Comment)
+  // public comments: HasMany<typeof Comment>;
+
+  @hasMany(() => Reply)
+  public replies: HasMany<typeof Reply>
 }

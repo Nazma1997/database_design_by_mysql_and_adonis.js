@@ -1,6 +1,8 @@
 import { BaseModel, BelongsTo, HasMany, belongsTo, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Comment from './Comment'
 import Auth from './Auth'
+import Reply from './Reply'
+import React from './React'
 
 export default class Post extends BaseModel {
   @column({ isPrimary: true })
@@ -28,6 +30,9 @@ export default class Post extends BaseModel {
 
   @hasMany(() => Comment)
   public comments: HasMany<typeof Comment>;
+
+  @hasMany(() => React)
+  public user_reacts: HasMany<typeof React >
 
 
 }

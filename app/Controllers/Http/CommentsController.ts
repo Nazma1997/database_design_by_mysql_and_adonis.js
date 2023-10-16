@@ -18,7 +18,8 @@ export default class CommentsController {
 
     public async allComments({ response }: HttpContextContract) {
         try {
-            const all_comments = await Comment.all()
+            const all_comments = await Comment.query().preload('replies')
+            
             return response.status(200).json({ message: 'All post with their comments', all_comments })
         } catch (error) {
              console.log(error)

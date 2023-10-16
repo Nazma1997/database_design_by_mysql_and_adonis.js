@@ -2,6 +2,7 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import { BaseModel, HasMany, beforeSave, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Post from './Post'
 import Comment from './Comment'
+import Reply from './Reply'
 
 export default class Auth extends BaseModel {
   @column({ isPrimary: true })
@@ -23,6 +24,9 @@ export default class Auth extends BaseModel {
 
   @hasMany(() => Comment)
   public comments: HasMany<typeof Comment>
+
+  @hasMany(() => Reply)
+  public replies: HasMany<typeof Reply>
 
 
   @beforeSave()

@@ -46,3 +46,15 @@ Route.post('/comments', 'CommentsController.createComment')
 Route.get('/comments', 'CommentsController.allComments')
 Route.patch('/comments/:id/edit', 'CommentsController.updateComment')
 Route.delete('/comments/:id/delete', 'CommentsController.deleteComment')
+
+
+//reply end point
+
+Route.post('/reply', 'RepliesController.createReply')
+Route.patch('/reply', 'RepliesController.updateReply')
+Route.delete('/reply/:id', 'RepliesController.deleteReply')
+
+
+//react end point 
+
+Route.post('/react', 'ReactsController.createReact')
